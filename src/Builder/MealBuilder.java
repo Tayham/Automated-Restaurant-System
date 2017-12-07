@@ -3,7 +3,7 @@ package Builder;
 
 public abstract class MealBuilder {
 
-	protected Meal meal = new Meal();
+	final Meal meal = new Meal();
 
 	public abstract void addDrink();
 

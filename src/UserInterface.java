@@ -10,7 +10,7 @@ class UserInterface {
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
 		String todPrompt = "Please select what time of day it is: \n1 - Morning\n2 - Lunchtime\n3 - Dinnertime";
-		String menuPrompt = "1 - Display Menu\n2 – Add Order\n3 - Select a Special Meal and Add to Order \n4 – Print Tab\n0 – EXIT";
+		String menuPrompt = "1 - Display Menu\n2 – Add Order\n3 - Select a Special Meal and Add to Order \n4 – Print Tab\n5 – Change Time of Day\n0 – EXIT";
 		String inputPrompt = "Please enter your option:";
 		String orderPrompt = "Please enter the order number (0 To Exit): ";
 		String tabPrompt = "Total:\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
@@ -21,7 +21,7 @@ class UserInterface {
 
 		boolean exit = false;
 		do {
-			int selection = menu(menuPrompt, inputPrompt, 4,0);
+			int selection = menu(menuPrompt, inputPrompt, 5,0);
 			switch (selection) {
 				case 0: //EXIT
 					exit = true;
@@ -38,6 +38,9 @@ class UserInterface {
 				case 4: //Print Tab
 					printTab(tabPrompt);
 					break;
+				case 5: //Change Time of Day
+					SystemInterface.setMenuState(menu(todPrompt, inputPrompt, 3,1));
+					break;
 			}
 		} while (!exit);
 	}
@@ -45,12 +48,6 @@ class UserInterface {
 
 	private static void printMenu() {
 		for (String output : SystemInterface.printMenu()) {
-			System.out.print(output);
-		}
-	}
-
-	private static void printMenuType(MenuItemType type) {
-		for (String output : SystemInterface.printMenuType(type)) {
 			System.out.print(output);
 		}
 	}

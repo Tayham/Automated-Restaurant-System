@@ -5,10 +5,8 @@ import Aggregations.OrderItem;
 import Builder.*;
 
 class CMDMakeMeal {
-	private Aggregator aggregator;
-	private int selection;
-////	Director director = new Director();
-//	FullMealBuilder fullMealBuilder = new FullMealBuilder();
+	private final Aggregator aggregator;
+	private final int selection;
 
 	public CMDMakeMeal(Aggregator aggregator, int selection) {
 		this.aggregator = aggregator;

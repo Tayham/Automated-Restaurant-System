@@ -1,6 +1,6 @@
 package Aggregations;
 
-import State.State;
+import State.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -10,15 +10,18 @@ import static Aggregations.MenuItemType.*;
 public class Menu {
 
 	private final ArrayList<MenuItem> menu;
-	private State menuTime;
+	private State menuTime = new Morning();
 
 	public Menu() {
 		menu = new ArrayList<>();
 		fillMenu();
 	}
 
-	public void setState(State newState) {
-		menuTime = newState;
+	public void setState(State s){
+		menuTime = s;
+	}
+	public void updateMenuTime(int i) {
+		menuTime.updateTime(i,this);
 		menuTime.displayState();
 	}
 
@@ -72,9 +75,11 @@ public class Menu {
 		return new MenuIterator();
 	}
 
-	public TypeIterator typeIterator(MenuItemType type) {
-		return new TypeIterator(type);
-	}
+// --Commented out by Inspection START (12/7/2017 3:34 PM):
+//	public TypeIterator typeIterator(MenuItemType type) {
+//		return new TypeIterator(type);
+//	}
+// --Commented out by Inspection STOP (12/7/2017 3:34 PM)
 
 	private class MenuIterator implements Iterator {
 		private int i = 0;  // i
@@ -102,34 +107,34 @@ public class Menu {
 		}
 	}
 
-	private class TypeIterator implements Iterator {
-		final MenuItemType type;
-		private int i = 0;
-
-		TypeIterator(MenuItemType type) {
-			this.type = type;
-		}
-
-		public boolean hasNext() {
-			return !(i >= menu.size() || menu.get(i) == null) && filter();
-		}
-
-		boolean filter() {
-			if ((menu.get(i).getType() == (type)) && menu.get(i).getServedAt().contains(menuTime.toString())) {
-				return true;
-			} else {
-				i++;
-				return hasNext();
-			}
-		}
-
-		public MenuItem next() {
-			return menu.get(i++);
-		}
-
-		@Override
-		public void remove() {
-
-		}
-	}
+//	private class TypeIterator implements Iterator {
+//		final MenuItemType type;
+//		private int i = 0;
+//
+//		TypeIterator(MenuItemType type) {
+//			this.type = type;
+//		}
+//
+//		public boolean hasNext() {
+//			return !(i >= menu.size() || menu.get(i) == null) && filter();
+//		}
+//
+//		boolean filter() {
+//			if ((menu.get(i).getType() == (type)) && menu.get(i).getServedAt().contains(menuTime.toString())) {
+//				return true;
+//			} else {
+//				i++;
+//				return hasNext();
+//			}
+//		}
+//
+//		public MenuItem next() {
+//			return menu.get(i++);
+//		}
+//
+//		@Override
+//		public void remove() {
+//
+//		}
+//	}
 }

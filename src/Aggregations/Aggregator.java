@@ -29,7 +29,6 @@ public class Aggregator {
 		return orders;
 	}
 
-
 	public Tab getTab() {
 		return tab;
 	}

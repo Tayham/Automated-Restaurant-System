@@ -1,11 +1,11 @@
 package System;
 
-import Aggregations.*;
+import Aggregations.Menu;
+import Aggregations.MenuItem;
+import Aggregations.Orders;
+import Aggregations.Tab;
 import Builder.Meals;
 import Command.Invoker;
-import State.Afternoon;
-import State.Evening;
-import State.Morning;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,34 +20,13 @@ public class SystemInterface {
 		invoker = new Invoker(new Menu(), new Orders(), new Meals(), new Tab());
 	}
 
-	public static void setMenuState(int s) {
-		switch (s) {
-			case 1:
-				invoker.getMenu().setState(new Morning());
-				break;
-			case 2:
-				invoker.getMenu().setState(new Afternoon());
-				break;
-			case 3:
-				invoker.getMenu().setState(new Evening());
-				break;
-		}
+	public static void setMenuState(int i) {
+		invoker.getMenu().updateMenuTime(i);
 	}
 
 	public static ArrayList<String> printMenu() {
 		ArrayList<String> output = new ArrayList<>();
 		Iterator<MenuItem> iterator = invoker.getMenu().iterator();
-		while (iterator.hasNext()) {
-			MenuItem item = iterator.next();
-			if (item != null)
-				output.add(item.toString());
-		}
-		return output;
-	}
-
-	public static ArrayList<String> printMenuType(MenuItemType type) {
-		ArrayList<String> output = new ArrayList<>();
-		Iterator<MenuItem> iterator = invoker.getMenu().typeIterator(type);
 		while (iterator.hasNext()) {
 			MenuItem item = iterator.next();
 			if (item != null)

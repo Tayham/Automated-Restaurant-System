@@ -18,33 +18,41 @@ public class Meal {
 		this.mealId = mealId;
 	}
 
-	public String getMealName() {
-		return mealName;
-	}
+// --Commented out by Inspection START (12/7/2017 3:34 PM):
+//	public String getMealName() {
+//		return mealName;
+//	}
+// --Commented out by Inspection STOP (12/7/2017 3:34 PM)
 
 	public void setMealName(String mealName) {
 		this.mealName = mealName;
 	}
 
-	public String getEntree() {
-		return entree;
-	}
+// --Commented out by Inspection START (12/7/2017 3:34 PM):
+//	public String getEntree() {
+//		return entree;
+//	}
+// --Commented out by Inspection STOP (12/7/2017 3:34 PM)
 
 	public void setEntree(String entree) {
 		this.entree = entree;
 	}
 
-	public String getSide() {
-		return side;
-	}
+// --Commented out by Inspection START (12/7/2017 3:34 PM):
+//	public String getSide() {
+//		return side;
+//	}
+// --Commented out by Inspection STOP (12/7/2017 3:34 PM)
 
 	public void setSide(String side) {
 		this.side = side;
 	}
 
-	public String getDrink() {
-		return drink;
-	}
+// --Commented out by Inspection START (12/7/2017 3:34 PM):
+//	public String getDrink() {
+//		return drink;
+//	}
+// --Commented out by Inspection STOP (12/7/2017 3:34 PM)
 
 	public void setDrink(String drink) {
 		this.drink = drink;

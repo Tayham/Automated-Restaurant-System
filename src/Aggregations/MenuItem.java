@@ -15,9 +15,11 @@ public class MenuItem {
 		this.servedAt = servedAt;
 	}
 
-	public MenuItem() {
-
-	}
+// --Commented out by Inspection START (12/7/2017 3:34 PM):
+//	public MenuItem() {
+//
+//	}
+// --Commented out by Inspection STOP (12/7/2017 3:34 PM)
 
 	public int getItemId() {
 		return id;

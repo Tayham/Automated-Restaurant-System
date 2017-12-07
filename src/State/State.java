@@ -1,8 +1,10 @@
 package State;
 
+import Aggregations.Menu;
+
 public interface State {
 
-	void timeOfDay(StateContext context);
+	void updateTime(int i, Menu menu);
 
 	void displayState();
 

@@ -36,6 +36,6 @@ public class MenuItem {
 	}
 
 	public String toString() {
-		return "#" + itemNum + " - " + "Item: " + itemDesc + " ---------- " + "$" + price + "\n";
+		return "#" + itemNum + " - " + itemDesc + "  [" + type + "]" + " ---------- " + "$" + price + "\n";
 	}
 }

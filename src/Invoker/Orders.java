@@ -1,44 +1,45 @@
 package Invoker;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Orders {
 
-    private ArrayList<OrderItem> orders;
+	private ArrayList<OrderItem> orders;
 
-    public Orders() {
-        orders = new ArrayList();
-    }
+	public Orders() {
+		orders = new ArrayList();
+	}
 
-    public void addOrder(OrderItem order) {
-        orders.add(order);
-    }
+	public void addOrder(OrderItem order) {
+		orders.add(order);
+	}
 
-    public OrderItem getOrderItem(int x){
-        OrderItem item;
-        item = orders.get(x);
-        return item;
-    }
+	public OrderItem getOrderItem(int x) {
+		OrderItem item;
+		item = orders.get(x);
+		return item;
+	}
 
-    public int getTotalOrders() {
-        return orders.size();
-    }
+	public int getTotalOrders() {
+		return orders.size();
+	}
 
-    public Iterator<OrderItem> iterator() {
-        return new OrderIterator();
-    }
+	public Iterator<OrderItem> iterator() {
+		return new OrderIterator();
+	}
 
-    private class OrderIterator implements Iterator<OrderItem> {
-        int index = 0;
+	private class OrderIterator implements Iterator<OrderItem> {
+		int index = 0;
 
-        @Override
-        public boolean hasNext() {
-            return !(index >= orders.size() || orders.get(index) == null);
-        }
+		@Override
+		public boolean hasNext() {
+			return !(index >= orders.size() || orders.get(index) == null);
+		}
 
-        @Override
-        public OrderItem next() {
-            return orders.get(index++);
-        }
-    }
+		@Override
+		public OrderItem next() {
+			return orders.get(index++);
+		}
+	}
 }

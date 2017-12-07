@@ -3,6 +3,7 @@ package Builder;
 import Invoker.MenuItem;
 
 public class Meal {
+	private int mealNum;
 	private MenuItem entree;
 	private MenuItem side;
 	private MenuItem drink;
@@ -32,17 +33,21 @@ public class Meal {
 		this.drink = drink;
 	}
 
-	public int generateMealNum() {
+	public void generateMealNum() {
 		if ((entree != null) && (side != null) && (drink != null)) {
-			return Integer.valueOf(String.valueOf(entree) + String.valueOf(side) + String.valueOf(drink));
-		} else return 0;
+			mealNum = Integer.valueOf(String.valueOf(entree.getItemNum()) + String.valueOf(side.getItemNum()) + String.valueOf(drink.getItemNum()));
+		}
+	}
+
+	public int getMealNum() {
+		return mealNum;
 	}
 
 	public double getCost() {
-		return entree.getPrice() + side.getPrice() + drink.getPrice();
+		return (entree.getPrice() + side.getPrice() + drink.getPrice()) * .95;
 	}
 
-	public String showItems() {
-		return "\t#" + entree.toString() + "\t#" + side.toString() + "\t#" + drink.toString();
+	public String toString() {
+		return "Meal #" + mealNum + ":\n\t" + entree.toString() + "\t" + side.toString() + "\t" + drink.toString();
 	}
 }

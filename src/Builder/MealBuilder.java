@@ -1,13 +1,21 @@
 package Builder;
-import Invoker.*;
 
+import Invoker.Menu;
+import Invoker.MenuItem;
 
 public class MealBuilder {
 
-	public void buildMeal(MenuItem entree, MenuItem side, MenuItem drink) {
+	public Meal buildMeal(Menu menu, int[] selections) {
 		Meal meal = new Meal();
-		meal.setEntree(entree);
-		meal.setSide(side);
-		meal.setDrink(drink);
+		MenuItem[] items = new MenuItem[3];
+		int i = 0;
+		for (int s : selections) {
+			items[i] = menu.getMenuItem(s - 1);
+			i++;
+		}
+		meal.setEntree(items[0]);
+		meal.setSide(items[1]);
+		meal.setDrink(items[2]);
+		return meal;
 	}
 }

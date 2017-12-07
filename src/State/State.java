@@ -23,9 +23,7 @@
 package State;
 
 /**
- *
  * State interface.
- *
  */
 public interface State {
 

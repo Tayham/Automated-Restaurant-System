@@ -80,6 +80,16 @@ public class Menu {
 		return false;
 	}
 
+	public boolean checkItemCodeType(int itemCode, MenuItemType type) {
+		for (MenuItem m : menu) {
+			if (m.getItemNum() == (itemCode)) {
+				System.out.println(m.toString());
+			}
+			System.out.println("False" + m.toString());
+		}
+		return false;
+	}
+
 
 	public Iterator<MenuItem> iterator() {
 		return new MenuIterator();

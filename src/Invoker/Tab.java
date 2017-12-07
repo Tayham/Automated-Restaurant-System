@@ -1,6 +1,9 @@
 package Invoker;
 
-import java.util.*;
+import Builder.Meals;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Tab {
 
@@ -10,11 +13,16 @@ public class Tab {
 		orders = new ArrayList<>();
 	}
 
-	public ArrayList<String> fillList(Menu menu, Orders order) {
+	public ArrayList<String> fillList(Meals meals, Menu menu, Orders order) {
 		for (int x = 0; x < order.getTotalOrders(); x++) {
 			for (int y = 0; y < menu.totalMenuItems(); y++) {
 				if (order.getOrderItem(x).getItemNum() == menu.getMenuItem(y).getItemNum()) {
 					orders.add(menu.getMenuItem(y).toString());
+				}
+			}
+			for (int z = 0; z < meals.getTotalMeals(); z++) {
+				if (order.getOrderItem(x).getItemNum() == meals.getMealItem(z).getMealNum()) {
+					orders.add(meals.getMealItem(z).toString());
 				}
 			}
 		}
@@ -25,13 +33,18 @@ public class Tab {
 		orders.clear();
 	}
 
-	public String calcTotal(Menu menu, Orders order) {
+	public String calcTotal(Meals meals, Menu menu, Orders order) {
 		double total = 0.0;
 
 		for (int x = 0; x < order.getTotalOrders(); x++) {
 			for (int y = 0; y < menu.totalMenuItems(); y++) {
 				if (order.getOrderItem(x).getItemNum() == menu.getMenuItem(y).getItemNum()) {
 					total += menu.getMenuItem(y).getPrice();
+				}
+			}
+			for (int z = 0; z < meals.getTotalMeals(); z++) {
+				if (order.getOrderItem(x).getItemNum() == meals.getMealItem(z).getMealNum()) {
+					total += meals.getMealItem(z).getCost();
 				}
 			}
 		}
@@ -58,6 +71,11 @@ public class Tab {
 		@Override
 		public String next() {
 			return orders.get(index++);
+		}
+
+		@Override
+		public void remove() {
+
 		}
 	}
 }

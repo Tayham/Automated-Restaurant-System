@@ -1,7 +1,6 @@
 package System;
 
 import Aggregations.*;
-import Builder.MealBuilder;
 import Builder.Meals;
 import Command.Invoker;
 import State.Afternoon;
@@ -18,7 +17,7 @@ public class SystemInterface {
 	private static Invoker invoker;
 
 	public static void init() {
-		invoker = new Invoker(new Menu(), new Orders(), new Meals(), new Tab(), new MealBuilder());
+		invoker = new Invoker(new Menu(), new Orders(), new Meals(), new Tab());
 	}
 
 	public static void setMenuState(int s) {
@@ -76,8 +75,8 @@ public class SystemInterface {
 		}
 	}
 
-	public static String makeMeal(int[] itemCodes) {
-		return invoker.makeMeal(itemCodes).toString();
+	public static String makeMeal(int mealChoice) {
+		return invoker.makeMeal(mealChoice).toString();
 	}
 
 	private static void fillTab() {

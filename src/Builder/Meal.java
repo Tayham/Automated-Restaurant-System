@@ -3,41 +3,65 @@ package Builder;
 import Aggregations.MenuItem;
 
 public class Meal {
-	private int mealNum;
-	private MenuItem entree;
-	private MenuItem side;
-	private MenuItem drink;
+	private int mealId;
+	private String mealName;
+	private String entree;
+	private String side;
+	private String drink;
+	private double cost;
 
+	public int getMealId() {
+		return mealId;
+	}
 
-	public void setEntree(MenuItem entree) {
+	public void setMealId(int mealId) {
+		this.mealId = mealId;
+	}
+
+	public String getMealName() {
+		return mealName;
+	}
+
+	public void setMealName(String mealName) {
+		this.mealName = mealName;
+	}
+
+	public String getEntree() {
+		return entree;
+	}
+
+	public void setEntree(String entree) {
 		this.entree = entree;
 	}
 
+	public String getSide() {
+		return side;
+	}
 
-	public void setSide(MenuItem side) {
+	public void setSide(String side) {
 		this.side = side;
 	}
 
+	public String getDrink() {
+		return drink;
+	}
 
-	public void setDrink(MenuItem drink) {
+	public void setDrink(String drink) {
 		this.drink = drink;
 	}
 
-	public void generateMealNum() {
-		if ((entree != null) && (side != null) && (drink != null)) {
-			mealNum = Integer.valueOf(String.valueOf(entree.getItemId()) + String.valueOf(side.getItemId()) + String.valueOf(drink.getItemId()));
-		}
-	}
-
-	public int getMealId() {
-		return mealNum;
-	}
-
 	public double getCost() {
-		return (entree.getPrice() + side.getPrice() + drink.getPrice()) * .95;
+		return cost;
+	}
+
+	public void setCost(double cost) {
+		this.cost = cost;
 	}
 
 	public String toString() {
-		return "Meal #" + mealNum + ":\n\t" + entree.toString() + "\t" + side.toString() + "\t" + drink.toString() +"\n Meal Discount Price: $" + getCost();
+		//return "Meal #" + mealId + ":\n\t" + entree.toString() + "\t" + side.toString() + "\t" + drink.toString() +"\n Meal Discount Price: $" + getCost();
+		return (mealName + ":\n\t" + entree + "\n\t" + side + "\n\t" + drink + "\n Meal Cost: $" + cost + "\n");
+//		return "test";
 	}
+
 }

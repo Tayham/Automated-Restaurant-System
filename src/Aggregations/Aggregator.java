@@ -1,6 +1,6 @@
 package Aggregations;
 
-import Builder.MealBuilder;
+
 import Builder.Meals;
 
 public class Aggregator {
@@ -9,14 +9,12 @@ public class Aggregator {
 	private final Orders orders;
 	private final Tab tab;
 	private final Meals meals;
-	private final MealBuilder mealBuilder;
 
-	public Aggregator(Menu menu, Orders orders, Meals meals, Tab tab, MealBuilder mealBuilder) {
+	public Aggregator(Menu menu, Orders orders, Meals meals, Tab tab) {
 		this.menu = menu;
 		this.orders = orders;
 		this.tab = tab;
 		this.meals = meals;
-		this.mealBuilder = mealBuilder;
 	}
 
 	public Meals getMeals() {
@@ -31,9 +29,6 @@ public class Aggregator {
 		return orders;
 	}
 
-	public MealBuilder getMealBuilder() {
-		return mealBuilder;
-	}
 
 	public Tab getTab() {
 		return tab;

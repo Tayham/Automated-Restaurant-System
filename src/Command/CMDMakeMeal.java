@@ -2,23 +2,38 @@ package Command;
 
 import Aggregations.Aggregator;
 import Aggregations.OrderItem;
-import Builder.Meal;
+import Builder.*;
 
 class CMDMakeMeal {
-	private final Aggregator aggregator;
-	private final int[] selections;
+	private Aggregator aggregator;
+	private int selection;
+////	Director director = new Director();
+//	FullMealBuilder fullMealBuilder = new FullMealBuilder();
 
-	public CMDMakeMeal(Aggregator aggregator, int[] selections) {
+	public CMDMakeMeal(Aggregator aggregator, int selection) {
 		this.aggregator = aggregator;
-		this.selections = selections;
+		this.selection = selection;
 	}
 
 	public Meal execute() {
-		Builder.Meal meal = aggregator.getMealBuilder().buildMeal(aggregator.getMenu(), selections);
-		meal.generateMealNum();
+		MealDirector director = new MealDirector();
+		MealBuilder builder = null;
+		switch (selection) {
+			case 1:
+				builder = new NiceMealBuilder();
+				break;
+			case 2:
+				builder = new PanBrownMealBuilder();
+				break;
+			case 3:
+				builder = new SpaghettiMealBuilder();
+				break;
+		}
+		Meal meal = director.createMeal(builder);
 		OrderItem mealOrder = new OrderItem(meal.getMealId());
 		aggregator.getOrders().addOrder(mealOrder);
 		aggregator.getMeals().addMeal(meal);
 		return meal;
 	}
 }
+

@@ -1,11 +1,11 @@
 package Aggregations;
 
 public class MenuItem {
-	private final int id;
-	private final String description;
-	private final double price;
-	private final MenuItemType type;
-	private final String servedAt;
+	private  int id;
+	private  String description;
+	private double price;
+	private MenuItemType type;
+	private  String servedAt;
 
 	public MenuItem(int id, String description, double price, MenuItemType type, String servedAt) {
 		this.id = id;
@@ -13,6 +13,10 @@ public class MenuItem {
 		this.price = price;
 		this.type = type;
 		this.servedAt = servedAt;
+	}
+
+	public MenuItem() {
+
 	}
 
 	public int getItemId() {

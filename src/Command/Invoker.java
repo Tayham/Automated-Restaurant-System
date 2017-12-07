@@ -2,7 +2,7 @@ package Command;
 
 import Aggregations.Aggregator;
 import Builder.Meal;
-import Builder.MealBuilder;
+import Builder.SpaghettiMealBuilder;
 import Builder.Meals;
 import Aggregations.Menu;
 import Aggregations.Orders;
@@ -12,16 +12,16 @@ public class Invoker {
 
 	private final Aggregator aggregator;
 
-	public Invoker(Menu menu, Orders order, Meals meals, Tab tab, MealBuilder mealBuilder) {
-		aggregator = new Aggregator(menu, order, meals, tab, mealBuilder);
+	public Invoker(Menu menu, Orders order, Meals meals, Tab tab) {
+		aggregator = new Aggregator(menu, order, meals, tab);
 	}
 
 	public void addOrders(int itemId) {
 		new CMDAddItemToOrder(aggregator, itemId).execute();
 	}
 
-	public Meal makeMeal(int[] selections) {
-		return new CMDMakeMeal(aggregator, selections).execute();
+	public Meal makeMeal(int selection) {
+		return new CMDMakeMeal(aggregator, selection).execute();
 	}
 
 	public Meals getMeals() {

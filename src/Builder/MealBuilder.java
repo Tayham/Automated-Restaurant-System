@@ -1,21 +1,22 @@
 package Builder;
 
-import Aggregations.Menu;
-import Aggregations.MenuItem;
 
-public class MealBuilder {
+public abstract class MealBuilder {
 
-	public Meal buildMeal(Menu menu, int[] selections) {
-		Meal meal = new Meal();
-		MenuItem[] items = new MenuItem[3];
-		int i = 0;
-		for (int s : selections) {
-			items[i] = menu.getMenuItem(s - 1);
-			i++;
-		}
-		meal.setEntree(items[0]);
-		meal.setSide(items[1]);
-		meal.setDrink(items[2]);
-		return meal;
-	}
+	protected Meal meal = new Meal();
+
+	public abstract void addDrink();
+
+	public abstract void addEntree();
+
+	public abstract void addSide();
+
+	public abstract void addId();
+
+	public abstract void addMealName();
+
+	public abstract void addCost();
+
+	public abstract Meal getMeal();
 }
+

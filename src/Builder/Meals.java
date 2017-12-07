@@ -6,7 +6,6 @@ public class Meals {
 	private final ArrayList<Meal> meals;
 
 	public Meals() {
-		//noinspection unchecked
 		meals = new ArrayList();
 	}
 

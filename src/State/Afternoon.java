@@ -9,6 +9,11 @@ public class Afternoon implements State {
 	public void displayState() {
 		System.out.println("Lunch Menu Selected");
 	}
+	
+// 	public State time(String s){
+// 		if (s.equals("Morning")
+// 		    menu.setState(new Morning());
+// 	}
 
 	public String toString() {
 		return "Lunch";

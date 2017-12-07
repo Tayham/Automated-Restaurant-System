@@ -1,16 +1,17 @@
 package Command;
 
-import Invoker.Orders;
+import Aggregations.Aggregator;
+import Aggregations.Orders;
 
 public class CMDGetOrders implements Command {
 
-	private Aggregator agg;
+	private final Aggregator aggregator;
 
-	public CMDGetOrders(Aggregator agg) {
-		this.agg = agg;
+	public CMDGetOrders(Aggregator aggregator) {
+		this.aggregator = aggregator;
 	}
 
 	public Orders execute() {
-		return agg.getOrders();
+		return aggregator.getOrders();
 	}
 }

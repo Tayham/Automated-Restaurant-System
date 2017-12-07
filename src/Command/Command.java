@@ -1,5 +1,5 @@
 package Command;
 
-public interface Command {
+interface Command {
 	Object execute();
 }

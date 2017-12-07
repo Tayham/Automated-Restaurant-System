@@ -1,4 +1,4 @@
-# Automated-Restaurant-System
+# Automated-System-System
 A simple restaurant ordering system designed to showcase and utilize various Java design patterns.
 # PROBLEM
 You are to implement an automated restaurant system utilizing the Command design pattern, minimally consisting of the following three commands. You will then extend this basic system in any way that you choose to demonstrate the use of additional design patterns.

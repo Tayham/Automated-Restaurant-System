@@ -1,7 +1,7 @@
 package Builder;
 
-import Invoker.Menu;
-import Invoker.MenuItem;
+import Aggregations.Menu;
+import Aggregations.MenuItem;
 
 public class MealBuilder {
 

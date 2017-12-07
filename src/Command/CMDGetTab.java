@@ -1,15 +1,16 @@
 package Command;
 
-import Invoker.Tab;
+import Aggregations.Aggregator;
+import Aggregations.Tab;
 
 public class CMDGetTab implements Command {
-	private Aggregator agg;
+	private final Aggregator aggregator;
 
-	public CMDGetTab(Aggregator agg) {
-		this.agg = agg;
+	public CMDGetTab(Aggregator aggregator) {
+		this.aggregator = aggregator;
 	}
 
 	public Tab execute() {
-		return agg.getTab();
+		return aggregator.getTab();
 	}
 }

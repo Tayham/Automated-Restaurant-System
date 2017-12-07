@@ -1,12 +1,12 @@
 package Builder;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Meals {
-	private ArrayList<Meal> meals;
+	private final ArrayList<Meal> meals;
 
 	public Meals() {
+		//noinspection unchecked
 		meals = new ArrayList();
 	}
 
@@ -14,32 +14,12 @@ public class Meals {
 		meals.add(meal);
 	}
 
-
-	public int getTotalMeals() {
+	public int getMealsLength() {
 		return meals.size();
 	}
 
-	public Meal getMealItem(int x) {
+	public Meal getMeal(int x) {
 		return meals.get(x);
-	}
-
-	public Iterator<Meal> iterator() {
-		return new Meals.MealsIterator();
-	}
-
-
-	private class MealsIterator implements Iterator<Meal> {
-		int index = 0;
-
-		@Override
-		public boolean hasNext() {
-			return !(index >= meals.size() || meals.get(index) == null);
-		}
-
-		@Override
-		public Meal next() {
-			return meals.get(index++);
-		}
 	}
 }
 

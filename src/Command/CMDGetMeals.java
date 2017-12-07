@@ -1,16 +1,17 @@
 package Command;
 
+import Aggregations.Aggregator;
 import Builder.Meals;
 
 public class CMDGetMeals implements Command {
 
-	private Aggregator agg;
+	private final Aggregator aggregator;
 
-	public CMDGetMeals(Aggregator agg) {
-		this.agg = agg;
+	public CMDGetMeals(Aggregator aggregator) {
+		this.aggregator = aggregator;
 	}
 
 	public Meals execute() {
-		return agg.getMeals();
+		return aggregator.getMeals();
 	}
 }

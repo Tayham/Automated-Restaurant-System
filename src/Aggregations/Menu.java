@@ -1,15 +1,15 @@
-package Invoker;
+package Aggregations;
 
 import State.State;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import static Invoker.MenuItemType.*;
+import static Aggregations.MenuItemType.*;
 
 public class Menu {
 
-	private ArrayList<MenuItem> menu;
+	private final ArrayList<MenuItem> menu;
 	private State menuTime;
 
 	public Menu() {
@@ -17,24 +17,12 @@ public class Menu {
 		fillMenu();
 	}
 
-	public void addMenuItem(MenuItem item) {
-		menu.add(item);
-	}
-
-	public void removeMenuItem(MenuItem item) {
-		menu.remove(item);
-	}
-
-	public State getState() {
-		return menuTime;
-	}
-
 	public void setState(State newState) {
 		menuTime = newState;
 		menuTime.displayState();
 	}
 
-	public void fillMenu() {
+	private void fillMenu() {
 		{
 
 			//Entree Items
@@ -67,46 +55,35 @@ public class Menu {
 		return menu.get(x);
 	}
 
-	public int totalMenuItems() {
+	public int getMenuLength() {
 		return menu.size();
 	}
 
 	public boolean checkItemCode(int itemCode) {
 		for (MenuItem m : menu) {
-			if (m.getItemNum() == (itemCode) && (m.getServedAt().contains(menuTime.toString()))) {
+			if (m.getItemId() == (itemCode) && (m.getServedAt().contains(menuTime.toString()))) {
 				return true;
 			}
 		}
 		return false;
 	}
 
-	public boolean checkItemCodeType(int itemCode, MenuItemType type) {
-		for (MenuItem m : menu) {
-			if (m.getItemNum() == (itemCode)) {
-				System.out.println(m.toString());
-			}
-			System.out.println("False" + m.toString());
-		}
-		return false;
-	}
-
-
-	public Iterator<MenuItem> iterator() {
+	public MenuIterator iterator() {
 		return new MenuIterator();
 	}
 
-	public Iterator<MenuItem> typeIterator(MenuItemType type) {
+	public TypeIterator typeIterator(MenuItemType type) {
 		return new TypeIterator(type);
 	}
 
 	private class MenuIterator implements Iterator {
-		private int i = 0;  // index
+		private int i = 0;  // i
 
 		public boolean hasNext() {
 			return !(i >= menu.size() || menu.get(i) == null) && filter();
 		}
 
-		public boolean filter() {
+		boolean filter() {
 			if (menu.get(i).getServedAt().contains(menuTime.toString())) {
 				return true;
 			} else {
@@ -126,10 +103,10 @@ public class Menu {
 	}
 
 	private class TypeIterator implements Iterator {
-		MenuItemType type;
+		final MenuItemType type;
 		private int i = 0;
 
-		public TypeIterator(MenuItemType type) {
+		TypeIterator(MenuItemType type) {
 			this.type = type;
 		}
 
@@ -137,7 +114,7 @@ public class Menu {
 			return !(i >= menu.size() || menu.get(i) == null) && filter();
 		}
 
-		public boolean filter() {
+		boolean filter() {
 			if ((menu.get(i).getType() == (type)) && menu.get(i).getServedAt().contains(menuTime.toString())) {
 				return true;
 			} else {

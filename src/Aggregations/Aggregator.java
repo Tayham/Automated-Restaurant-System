@@ -1,18 +1,15 @@
-package Command;
+package Aggregations;
 
 import Builder.MealBuilder;
 import Builder.Meals;
-import Invoker.Menu;
-import Invoker.Orders;
-import Invoker.Tab;
 
 public class Aggregator {
 
-	private Menu menu;
-	private Orders orders;
-	private Tab tab;
-	private Meals meals;
-	private MealBuilder mealBuilder;
+	private final Menu menu;
+	private final Orders orders;
+	private final Tab tab;
+	private final Meals meals;
+	private final MealBuilder mealBuilder;
 
 	public Aggregator(Menu menu, Orders orders, Meals meals, Tab tab, MealBuilder mealBuilder) {
 		this.menu = menu;

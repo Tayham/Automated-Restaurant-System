@@ -1,16 +1,17 @@
 package Command;
 
-import Invoker.Menu;
+import Aggregations.Aggregator;
+import Aggregations.Menu;
 
 public class CMDGetMenu implements Command {
 
-	private Aggregator agg;
+	private final Aggregator aggregator;
 
-	public CMDGetMenu(Aggregator agg) {
-		this.agg = agg;
+	public CMDGetMenu(Aggregator aggregator) {
+		this.aggregator = aggregator;
 	}
 
 	public Menu execute() {
-		return agg.getMenu();
+		return aggregator.getMenu();
 	}
 }

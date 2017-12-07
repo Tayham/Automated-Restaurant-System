@@ -1,6 +1,6 @@
 package Builder;
 
-import Invoker.MenuItem;
+import Aggregations.MenuItem;
 
 public class Meal {
 	private int mealNum;
@@ -9,25 +9,15 @@ public class Meal {
 	private MenuItem drink;
 
 
-	public MenuItem getEntree() {
-		return entree;
-	}
-
 	public void setEntree(MenuItem entree) {
 		this.entree = entree;
 	}
 
-	public MenuItem getSide() {
-		return side;
-	}
 
 	public void setSide(MenuItem side) {
 		this.side = side;
 	}
 
-	public MenuItem getDrink() {
-		return drink;
-	}
 
 	public void setDrink(MenuItem drink) {
 		this.drink = drink;
@@ -35,11 +25,11 @@ public class Meal {
 
 	public void generateMealNum() {
 		if ((entree != null) && (side != null) && (drink != null)) {
-			mealNum = Integer.valueOf(String.valueOf(entree.getItemNum()) + String.valueOf(side.getItemNum()) + String.valueOf(drink.getItemNum()));
+			mealNum = Integer.valueOf(String.valueOf(entree.getItemId()) + String.valueOf(side.getItemId()) + String.valueOf(drink.getItemId()));
 		}
 	}
 
-	public int getMealNum() {
+	public int getMealId() {
 		return mealNum;
 	}
 
@@ -48,6 +38,6 @@ public class Meal {
 	}
 
 	public String toString() {
-		return "Meal #" + mealNum + ":\n\t" + entree.toString() + "\t" + side.toString() + "\t" + drink.toString();
+		return "Meal #" + mealNum + ":\n\t" + entree.toString() + "\t" + side.toString() + "\t" + drink.toString() +"\n Meal Discount Price: $" + getCost();
 	}
 }

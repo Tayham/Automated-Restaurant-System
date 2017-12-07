@@ -1,23 +1,24 @@
 package Command;
 
+import Aggregations.Aggregator;
+import Aggregations.OrderItem;
 import Builder.Meal;
-import Invoker.OrderItem;
 
-public class CMDMakeMeal {
-	private Aggregator agg;
-	private int[] selections;
+class CMDMakeMeal {
+	private final Aggregator aggregator;
+	private final int[] selections;
 
-	public CMDMakeMeal(Aggregator agg, int[] selections) {
-		this.agg = agg;
+	public CMDMakeMeal(Aggregator aggregator, int[] selections) {
+		this.aggregator = aggregator;
 		this.selections = selections;
 	}
 
 	public Meal execute() {
-		Builder.Meal meal = agg.getMealBuilder().buildMeal(agg.getMenu(), selections);
+		Builder.Meal meal = aggregator.getMealBuilder().buildMeal(aggregator.getMenu(), selections);
 		meal.generateMealNum();
-		OrderItem mealOrder = new OrderItem(meal.getMealNum());
-		agg.getOrders().addOrder(mealOrder);
-		agg.getMeals().addMeal(meal);
+		OrderItem mealOrder = new OrderItem(meal.getMealId());
+		aggregator.getOrders().addOrder(mealOrder);
+		aggregator.getMeals().addMeal(meal);
 		return meal;
 	}
 }

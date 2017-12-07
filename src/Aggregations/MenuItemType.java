@@ -1,4 +1,4 @@
-package Invoker;
+package Aggregations;
 
 public enum MenuItemType {
 	ENTREE("Entree"), SIDE("Side"), DRINK("Drink");

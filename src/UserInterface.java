@@ -13,12 +13,12 @@ class UserInterface {
 		String tabPrompt = "Total:\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
 		String mealPrompt = "1 - Nice Meal \n2 – PanBrown Meal\n3 - Spaghetti Meal";
 		SystemInterface.init();
-		SystemInterface.setMenuState(menu(todPrompt, inputPrompt, 3,1));
+		SystemInterface.setMenuState(menu(todPrompt, inputPrompt, 3, 1));
 
 
 		boolean exit = false;
 		do {
-			int selection = menu(menuPrompt, inputPrompt, 5,0);
+			int selection = menu(menuPrompt, inputPrompt, 5, 0);
 			switch (selection) {
 				case 0: //EXIT
 					exit = true;
@@ -30,18 +30,17 @@ class UserInterface {
 					addOrder(orderPrompt, input);
 					break;
 				case 3: //Make Meal and Add to Order
-					System.out.println(SystemInterface.makeMeal(menu(mealPrompt, inputPrompt, 3,1)));
+					System.out.println(SystemInterface.makeMeal(menu(mealPrompt, inputPrompt, 3, 1)));
 					break;
 				case 4: //Print Tab
 					printTab(tabPrompt);
 					break;
 				case 5: //Change Time of Day
-					SystemInterface.setMenuState(menu(todPrompt, inputPrompt, 3,1));
+					SystemInterface.setMenuState(menu(todPrompt, inputPrompt, 3, 1));
 					break;
 			}
 		} while (!exit);
 	}
-
 
 	private static void printMenu() {
 		for (String output : SystemInterface.printMenu()) {
@@ -89,6 +88,5 @@ class UserInterface {
 		}
 		return input.nextInt();
 	}
-
 
 }

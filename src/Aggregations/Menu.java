@@ -1,11 +1,10 @@
 package Aggregations;
 
-import State.*;
+import State.Morning;
+import State.State;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-
-import static Aggregations.MenuItemType.*;
 
 public class Menu {
 
@@ -17,11 +16,12 @@ public class Menu {
 		fillMenu();
 	}
 
-	public void setState(State s){
+	public void setState(State s) {
 		menuTime = s;
 	}
+
 	public void updateMenuTime(int i) {
-		menuTime.updateTime(i,this);
+		menuTime.updateTime(i, this);
 		menuTime.displayState();
 	}
 
@@ -29,28 +29,28 @@ public class Menu {
 		{
 
 			//Entree Items
-			menu.add(new MenuItem(1, "Pancakes", 10.99, ENTREE, "Breakfast"));
-			menu.add(new MenuItem(2, "Waffles", 11.95, ENTREE, "Breakfast"));
-			menu.add(new MenuItem(3, "Bagel", 7.99, ENTREE, "Breakfast"));
+			menu.add(new MenuItem(1, "Pancakes", 10.99,  "Breakfast"));
+			menu.add(new MenuItem(2, "Waffles", 11.95,  "Breakfast"));
+			menu.add(new MenuItem(3, "Bagel", 7.99,  "Breakfast"));
 
-			menu.add(new MenuItem(4, "Soup", 7.27, ENTREE, "Lunch"));
-			menu.add(new MenuItem(5, "Salad", 3.50, ENTREE, "Lunch"));
-			menu.add(new MenuItem(6, "Grilled Cheese", 4.84, ENTREE, "Lunch"));
+			menu.add(new MenuItem(4, "Soup", 7.27,  "Lunch"));
+			menu.add(new MenuItem(5, "Salad", 3.50,  "Lunch"));
+			menu.add(new MenuItem(6, "Grilled Cheese", 4.84,  "Lunch"));
 
-			menu.add(new MenuItem(7, "Pizza", 13.48, ENTREE, "Dinner"));
-			menu.add(new MenuItem(8, "CheeseBurger", 15.68, ENTREE, "Lunch & Dinner"));
-			menu.add(new MenuItem(9, "Steak", 20.51, ENTREE, "Dinner"));
+			menu.add(new MenuItem(7, "Pizza", 13.48,  "Dinner"));
+			menu.add(new MenuItem(8, "CheeseBurger", 15.68,  "Lunch & Dinner"));
+			menu.add(new MenuItem(9, "Steak", 20.51,  "Dinner"));
 
 			//Sides
-			menu.add(new MenuItem(10, "Sausage", 1.99, SIDE, "Breakfast"));
-			menu.add(new MenuItem(11, "Bacon", 2.26, SIDE, "Breakfast"));
-			menu.add(new MenuItem(12, "Fries", 1.99, SIDE, "Lunch & Dinner"));
-			menu.add(new MenuItem(13, "Mashed Potato", 3.45, SIDE, "Dinner"));
+			menu.add(new MenuItem(10, "Sausage", 1.99,  "Breakfast"));
+			menu.add(new MenuItem(11, "Bacon", 2.26,  "Breakfast"));
+			menu.add(new MenuItem(12, "Fries", 1.99,  "Lunch & Dinner"));
+			menu.add(new MenuItem(13, "Mashed Potato", 3.45,  "Dinner"));
 
 			//Drinks
-			menu.add(new MenuItem(14, "Chocolate Milk", 1.99, DRINK, "Breakfast"));
-			menu.add(new MenuItem(15, "Coffee", 2.95, DRINK, "Breakfast & Lunch & Dinner"));
-			menu.add(new MenuItem(16, "Soda", 1.50, DRINK, "Breakfast & Lunch & Dinner"));
+			menu.add(new MenuItem(14, "Chocolate Milk", 1.99, "Breakfast"));
+			menu.add(new MenuItem(15, "Coffee", 2.95, "Breakfast & Lunch & Dinner"));
+			menu.add(new MenuItem(16, "Soda", 1.50,  "Breakfast & Lunch & Dinner"));
 		}
 	}
 
@@ -74,12 +74,6 @@ public class Menu {
 	public MenuIterator iterator() {
 		return new MenuIterator();
 	}
-
-// --Commented out by Inspection START (12/7/2017 3:34 PM):
-//	public TypeIterator typeIterator(MenuItemType type) {
-//		return new TypeIterator(type);
-//	}
-// --Commented out by Inspection STOP (12/7/2017 3:34 PM)
 
 	private class MenuIterator implements Iterator {
 		private int i = 0;  // i
@@ -107,34 +101,4 @@ public class Menu {
 		}
 	}
 
-//	private class TypeIterator implements Iterator {
-//		final MenuItemType type;
-//		private int i = 0;
-//
-//		TypeIterator(MenuItemType type) {
-//			this.type = type;
-//		}
-//
-//		public boolean hasNext() {
-//			return !(i >= menu.size() || menu.get(i) == null) && filter();
-//		}
-//
-//		boolean filter() {
-//			if ((menu.get(i).getType() == (type)) && menu.get(i).getServedAt().contains(menuTime.toString())) {
-//				return true;
-//			} else {
-//				i++;
-//				return hasNext();
-//			}
-//		}
-//
-//		public MenuItem next() {
-//			return menu.get(i++);
-//		}
-//
-//		@Override
-//		public void remove() {
-//
-//		}
-//	}
 }

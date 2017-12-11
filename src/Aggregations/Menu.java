@@ -82,7 +82,7 @@ public class Menu {
 			return !(i >= menu.size() || menu.get(i) == null) && filter();
 		}
 
-		boolean filter() {
+		public boolean filter() {
 			if (menu.get(i).getServedAt().contains(menuTime.toString())) {
 				return true;
 			} else {

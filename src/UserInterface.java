@@ -1,9 +1,6 @@
-import Aggregations.MenuItemType;
 import System.SystemInterface;
 
 import java.util.Scanner;
-
-import static Aggregations.MenuItemType.*;
 
 class UserInterface {
 

@@ -56,7 +56,6 @@ public class Tab {
 		tab.clear();
 	}
 
-
 	public int getTabLength() {
 		return tab.size();
 	}
